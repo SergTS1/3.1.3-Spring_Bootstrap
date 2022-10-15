@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      lang="en">
+<head>
+    <title>Spring Security Example</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+
+
+                                     <!--Head-->
+
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark text-light">
+    <div class="container-fluid">
+        <div>
+            <span class="fw-bold" th:utext="${user.name}">USERNAME</span>
+            <span> with roles: </span>
+            <span sec:authorize="hasRole('ROLE_USER')">USER</span>
+        </div>
+        <a class="text-decoration-none font-weight-bold text-secondary" th:href="@{/logout}">Logout</a>
+    </div>
+</nav>
+
+
+
+<!--<div class="container">-->
+<!--    <div class="row">-->
+<!--        <div class="col-lg">-->
+<!--<div class="col-2 mt-3 p-0">-->
+<!--    <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">-->
+<!--        <a class="nav-link active" id="v-pills-admin-tab" data-toggle="pill" href="/admin/" role="tab" aria-controls="v-pills-admin" aria-selected="true">Admin</a>-->
+<!--        <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="/user" role="tab" aria-controls="v-pills-user" aria-selected="false">User</a>-->
+<!--    </div>-->
+<!--    <div class="tab-content" id="v-pills-tabContent">-->
+<!--        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab"></div>-->
+<!--        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab"></div>-->
+<!--    </div>-->
+<!--</div>-->
+
+
+                                     <!--        Left panel         -->
+
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-2 mt-3 p-0">
+                        <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
+                            <a class="nav-item nav-link ml-2 active" data-toggle="pill" th:href="@{/user}" role="tab"
+                               aria-controls="/user" aria-selected="true">User</a>
+                        </div>
+                    </div>
+
+
+<!--        </div>-->
+<!--        <div class="col-lg">-->
+
+
+<!--        &lt;!&ndash;<div class="container" th:width="60">&ndash;&gt;-->
+
+<!--<h1>User information-page</h1>-->
+<!--<div class="table table-striped">-->
+<!--&lt;!&ndash;<h4 th:utext="${user.name}">Name: name</h4>&ndash;&gt;-->
+<!--    <h4>About user</h4>-->
+
+
+                                   <!--        Table head     -->
+
+                    <div class="col-10 p-0">
+                        <div class="tab-content bg-light p-2">
+                            <div class="tab-pane fade show active pl-3" style="height: 900px;" id="user"
+                                 role="tabpanel" aria-labelledby="/user">
+                                <h1>User information-page</h1>
+                                <br><br>
+                                <div class="pl-3 pt-1 d-flex border-top border-left border-right"><h4> About user</h4></div>
+                                <div class="bg-white border p-3">
+
+
+
+                                      <!--     Table    -->
+
+                            <table class="table table-striped border-top">
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Name</th>
+                                    <th>Surname</th>
+                                    <th>Age</th>
+                                    <th>Username</th>
+                                    <th>Password</th>
+                                </tr>
+                                    <td th:utext="${user.id}">Id</td>
+                                    <td th:utext="${user.name}">Name</td>
+                                    <td th:utext="${user.surname}">Surname</td>
+                                    <td th:utext="${user.age}">Id</td>
+                                    <td th:utext="${user.username}">Username</td>
+                                    <td th:utext="${user.password}">Password</td>
+                                </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+<!--<button class="buttonLogout"-->
+<!--        onclick="window.location.href = '/logout';">Logout</button>-->
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
